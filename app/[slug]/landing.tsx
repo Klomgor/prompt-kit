@@ -20,7 +20,9 @@ export default function Landing({ content }: { content: LandingContent }) {
         <span className="text-foreground mb-6 block text-sm">
           {content.hero.badge}
         </span>
-        <h1 className="text-foreground mb-6 text-5xl">{content.hero.title}</h1>
+        <h1 className="text-foreground mb-6 text-5xl tracking-tight">
+          {content.hero.title}
+        </h1>
         <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-lg">
           {content.hero.description}
         </p>
@@ -31,10 +33,74 @@ export default function Landing({ content }: { content: LandingContent }) {
 
       <div className="relative mx-auto w-full max-w-3xl">
         <h2 className="text-foreground mb-8 text-center text-3xl font-medium">
-          The best way to build AI interfaces
+          Build a chat UI with React components
         </h2>
         <DemoPromptInput />
       </div>
+
+      {content.page_content ? (
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="grid gap-48">
+            <div>
+              <h2 className="text-foreground mb-4 text-3xl font-medium">
+                {content.page_content.overview.title}
+              </h2>
+              <div className="flex flex-col gap-4">
+                {content.page_content.overview.content
+                  .split("\n\n")
+                  .map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="text-muted-foreground text-lg"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-foreground mb-6 text-3xl font-medium">
+                {content.page_content.components.title}
+              </h2>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {content.page_content.components.content.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="border-border text-card-foreground hover:bg-muted/40 flex items-center gap-2 rounded-lg border px-4 py-3 transition-colors"
+                  >
+                    <CheckIcon className="h-4 w-4" />
+                    <span>{item.title}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-foreground mb-6 text-3xl font-medium">
+                {content.page_content.examples.title}
+              </h2>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {content.page_content.examples.content.map((example) => (
+                  <Link
+                    key={example.href}
+                    href={example.href}
+                    className="border-border hover:bg-muted/40 flex flex-col gap-2 rounded-lg border p-5 transition-colors"
+                  >
+                    <h3 className="text-card-foreground text-lg font-medium">
+                      {example.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {example.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <div className="mx-auto w-full max-w-6xl">
         <h2 className="text-foreground mb-8 text-center text-3xl font-medium">
@@ -45,7 +111,7 @@ export default function Landing({ content }: { content: LandingContent }) {
           {content.features_core.content.map((feature) => {
             return (
               <div
-                className="border-border bg-card flex flex-col rounded-lg border p-6"
+                className="border-border flex flex-col rounded-lg border p-6"
                 key={feature.title}
               >
                 <h3 className="text-card-foreground mb-6 text-xl font-medium">
@@ -92,7 +158,7 @@ export default function Landing({ content }: { content: LandingContent }) {
           <span className="font-serif">{`"`}</span>
           <span>{`
             You're one npx command away from a fully functional chatbot with
-            tool call. Amazing work by @Ibelick
+            tool calls. Amazing work by @Ibelick
           `}</span>
           <span className="font-serif">{`"`}</span>
         </a>
@@ -154,6 +220,36 @@ export default function Landing({ content }: { content: LandingContent }) {
           ))}
         </Accordion>
       </div>
+
+      {content.page_content ? (
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="border-border border-t pt-6">
+            <div className="text-foreground mb-3 text-sm font-medium">
+              {content.page_content.links.title}
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {content.page_content.links.clusters.map((cluster) => (
+                <div key={cluster.title} className="flex flex-col gap-2">
+                  <div className="text-muted-foreground text-xs tracking-wide uppercase">
+                    {cluster.title}
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    {cluster.links.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="text-primary text-sm hover:underline"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }

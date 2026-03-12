@@ -4,11 +4,12 @@ import { notFound } from "next/navigation"
 import {
   codeSections,
   componentsSections,
-  faq,
+  faqBySlug,
   featuresComponents,
   featuresSections,
   heroSections,
   metadataBySlug,
+  pageContentBySlug,
   slugs,
 } from "./data"
 import Landing from "./landing"
@@ -106,11 +107,12 @@ export default async function Page({
     <Landing
       content={{
         hero: heroSections[slug as keyof typeof heroSections],
+        page_content: pageContentBySlug[slug as keyof typeof pageContentBySlug],
         code: codeSections,
         features_core: featuresSections,
         components: componentsSections,
         features_components: featuresComponents,
-        faq: faq,
+        faq: faqBySlug[slug as keyof typeof faqBySlug],
       }}
     />
   )
