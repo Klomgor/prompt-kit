@@ -2,10 +2,11 @@
 
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
+import { slugs } from "./[slug]/data"
 import { SidebarProvider } from "./app-sidebar"
 import { Footer } from "./footer"
 import { Header } from "./header"
-import { AppSidebar, integrationsMenuItems } from "./sidebar"
+import { AppSidebar } from "./sidebar"
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const MOBILE_SIDEBAR_VIEWPORT_THRESHOLD = 768
@@ -17,9 +18,8 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
   const isComponentPage = usePathname().includes("/c/")
   const isFullStackPreview = usePathname().includes("/p/")
   const isDemoPage = usePathname().includes("/demo/")
-  const isLanding = integrationsMenuItems
-    ?.map((item) => item.url)
-    .includes(pathname ?? "")
+  const slug = (pathname ?? "").replace(/^\/+/, "").split("/")[0]
+  const isLanding = slugs.includes(slug)
 
   if (isComponentPage || isFullStackPreview || isDemoPage) {
     return <>{children}</>

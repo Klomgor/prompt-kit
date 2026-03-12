@@ -152,7 +152,7 @@ export function AppSidebar() {
                         className={cn(
                           "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                           isActive &&
-                            "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                          "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                         )}
                       >
                         <Link href={item.url}>{item.title}</Link>
@@ -178,7 +178,7 @@ export function AppSidebar() {
                         className={cn(
                           "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                           isActive &&
-                            "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                          "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                         )}
                       >
                         <Link
@@ -208,7 +208,7 @@ export function AppSidebar() {
                   className={cn(
                     "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                     pathname.includes("/blocks") &&
-                      "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                    "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                   )}
                 >
                   <Link href="/blocks" className="-m-2">
@@ -222,7 +222,7 @@ export function AppSidebar() {
                   className={cn(
                     "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                     pathname.includes("/primitives") &&
-                      "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                    "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                   )}
                 >
                   <Link href="/primitives" className="relative -m-2 gap-2">
@@ -247,7 +247,7 @@ export function AppSidebar() {
                         className={cn(
                           "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                           isActive &&
-                            "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                          "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                         )}
                       >
                         <Link href={item.url}>{item.title}</Link>
@@ -284,7 +284,7 @@ export function AppSidebar() {
                 className={cn(
                   "hover:bg-sidebar-accent/50 active:bg-sidebar-accent/50 hover:text-primary w-auto text-lg transition-all duration-150 md:text-sm",
                   pathname.includes("/docs/showcase") &&
-                    "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
+                  "text-primary bg-sidebar-accent hover:bg-sidebar-accent font-medium"
                 )}
               >
                 <Link href="/docs/showcase" className="-m-2">
