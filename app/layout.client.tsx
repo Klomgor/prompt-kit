@@ -39,7 +39,7 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
               className={cn(
                 "col-start-1 col-end-7 flex h-full flex-1 flex-col md:col-start-4 md:col-end-12 lg:col-end-10",
                 Boolean(isBlocksPage || isPrimitivesPage || isLanding) &&
-                  "lg:col-end-12"
+                "lg:col-end-12"
               )}
             >
               <main className="flex-1">{children}</main>
